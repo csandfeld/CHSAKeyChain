@@ -12,7 +12,7 @@
 RootModule = '.\CHSAKeyChain.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0.0'
+ModuleVersion = '1.0.0.1'
 
 # ID used to uniquely identify this module
 GUID = '22df86e6-d9d3-4e7c-898e-b78b4db88c3d'
@@ -60,7 +60,7 @@ Copyright = '(c) 2015 DGS Denmark A/S. All rights reserved'
 # TypesToProcess = @()
 
 # Format files (.ps1xml) to be loaded when importing this module
-FormatsToProcess = '..\CSKeyChain'
+# FormatsToProcess = ''
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()
