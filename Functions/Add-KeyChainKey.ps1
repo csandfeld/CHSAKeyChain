@@ -5,9 +5,14 @@
       $Key
       ,
 
-      [Parameter(Mandatory=$true)]
+      [Parameter(Mandatory=$true, ParameterSetName='UserName')]
       [String]
       $UserName
+      ,
+
+      [Parameter(Mandatory=$true, ParameterSetName='Credential')]
+      [System.Management.Automation.PSCredential]
+      $Credential
       ,
 
       [Parameter(Mandatory=$false)]
@@ -48,9 +53,11 @@
     }
     
     if ($all_good) {
-    
-        Write-Verbose 'Prompt for credential'
-        $Credential = Get-Credential $UserName -Message "Enter credential for key: $Key"
+        
+        if ($UserName) {
+            Write-Verbose 'Prompt for credential'
+            $Credential = Get-Credential $UserName -Message "Enter credential for key: $Key"
+        }
 
         if ($KeyChainKeys.Count -gt 0) {
             $AllKeys += $KeyChainKeys

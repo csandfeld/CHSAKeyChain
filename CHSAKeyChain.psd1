@@ -21,10 +21,10 @@ GUID = '22df86e6-d9d3-4e7c-898e-b78b4db88c3d'
 Author = 'Christian Sandfeld'
 
 # Company or vendor of this module
-CompanyName = 'DGS Denmark A/S'
+CompanyName = 'Christian Sandfeld'
 
 # Copyright statement for this module
-Copyright = '(c) 2015 DGS Denmark A/S. All rights reserved'
+Copyright = '(c) 2015 Christian Sandfeld. All rights reserved'
 
 # Description of the functionality provided by this module
 # Description = ''
