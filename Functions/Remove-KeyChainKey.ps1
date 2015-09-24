@@ -1,13 +1,15 @@
-﻿function Remove-KeyChainKey {
+﻿#requires -Version 2
+function Remove-KeyChainKey 
+{
     param(
-      [Parameter(Mandatory=$true)]
-      [String]
-      $Key
-      ,
+        [Parameter(Mandatory = $true)]
+        [String]
+        $Key
+        ,
 
-      [Parameter(Mandatory=$false)]
-      [String]
-      $KeyChain = "$env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml"
+        [Parameter(Mandatory = $false)]
+        [String]
+        $KeyChain = "$env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml"
     )
 
     
@@ -17,47 +19,44 @@
     
 
     # Check if KeyChain exist
-    if (Test-Path -Path $KeyChain -PathType Leaf) {
-    
-        Write-Verbose "KeyChain found: $KeyChain"
+    if (Test-Path -Path $KeyChain -PathType Leaf) 
+    {
+        Write-Verbose -Message "KeyChain found: $KeyChain"
 
-        Try {
-        
-            Write-Verbose 'Import KeyChain'
+        Try 
+        {
+            Write-Verbose -Message 'Import KeyChain'
             $KeyChainKeys = Import-Clixml -Path $KeyChain -ErrorAction Stop
             $all_good = $true
-
         }
-        Catch {
-        
+        Catch 
+        {
             Throw
             $all_good = $false
-
         }
     }
 
     
-    if ($all_good) {
-        
-        if ($KeyChainKeys.Count -gt 0) {
+    if ($all_good) 
+    {
+        if ($KeyChainKeys.Count -gt 0) 
+        {
             #$KeyChainKeys = @{$KeyChainKeys.GetEnumerator() | Where-Object { $_.Key -ne $Key }}
             $KeyChainKeys.Remove($Key)
         }
 
-        if ($KeyChainKeys.Count -gt 0) {
+        if ($KeyChainKeys.Count -gt 0) 
+        {
             $AllKeys += $KeyChainKeys
         }
 
-        Try {
-        
+        Try 
+        {
             $AllKeys | Export-Clixml -Path $KeyChain
-        
         }
-        Catch {
-        
+        Catch 
+        {
             Throw
-        
         }
-    
     }
 }
