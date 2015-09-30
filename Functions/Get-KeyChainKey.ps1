@@ -14,7 +14,7 @@ function Get-KeyChainKey
     
     Try 
     {
-        Write-Verbose -Message 'Import KeyChain'
+        Write-Verbose -Message "Import KeyChain: $KeyChain"
         $KeyChainKeys = Import-Clixml -Path $KeyChain -ErrorAction Stop
         $all_good = $true
     }
@@ -26,14 +26,17 @@ function Get-KeyChainKey
 
     if ($all_good) 
     {
+        Write-Verbose "1"
         if ($Key) 
         {
+            Write-Verbose "2"
             $KeyChainKeys.GetEnumerator() | Where-Object -FilterScript {
                 $_.Name -eq $Key 
             }
         }
         else 
         {
+            Write-Verbose "3"
             $KeyChainKeys
         }
     }
