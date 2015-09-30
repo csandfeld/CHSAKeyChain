@@ -26,17 +26,16 @@ function Get-KeyChainKey
 
     if ($all_good) 
     {
-        Write-Verbose "1"
-        if ($Key) 
+        if ($Key -ne $false) 
         {
-            Write-Verbose "2"
+            Write-Verbose "Return specific key: $Key"
             $KeyChainKeys.GetEnumerator() | Where-Object -FilterScript {
                 $_.Name -eq $Key 
             }
         }
         else 
         {
-            Write-Verbose "3"
+            Write-Verbose 'Return all keys'
             $KeyChainKeys
         }
     }
