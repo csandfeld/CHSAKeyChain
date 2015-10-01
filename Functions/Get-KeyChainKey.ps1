@@ -4,7 +4,7 @@ function Get-KeyChainKey
     param(
         [Parameter(Mandatory = $false)]
         [String]
-        $Key = $false
+        $Key = ''
         ,
 
         [Parameter(Mandatory = $false)]
@@ -26,7 +26,7 @@ function Get-KeyChainKey
 
     if ($all_good) 
     {
-        if ($Key -ne $false) 
+        if ($Key -ne '') 
         {
             Write-Verbose "Return specific key: $Key"
             $KeyChainKeys.GetEnumerator() | Where-Object -FilterScript {
