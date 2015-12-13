@@ -28,14 +28,14 @@ function Get-KeyChainKey
     {
         if ($Key -ne '') 
         {
-            Write-Verbose "Return specific key: $Key"
+            Write-Verbose -Message "Return specific key: $Key"
             $KeyChainKeys.GetEnumerator() | Where-Object -FilterScript {
-                $_.Name -eq $Key 
+                $_.Name -eq $Key
             }
         }
         else 
         {
-            Write-Verbose 'Return all keys'
+            Write-Verbose -Message 'Return all keys'
             $KeyChainKeys
         }
     }
