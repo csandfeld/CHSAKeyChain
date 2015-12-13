@@ -54,7 +54,7 @@ Describe "$ModuleName module" {
     
     
     
-    It 'Get-KeyChainKey should return correct object type when no key is specified' {
+    It 'Get-KeyChainKey should return hashtable object when no key is specified' {
     
         (Get-KeyChainKey -KeyChain $KeyChain).GetType() | Should be 'hashtable'
         
@@ -62,9 +62,9 @@ Describe "$ModuleName module" {
     
     
     
-    It 'Get-KeyChainKey should return correct object type when key is specified' {
+    It 'Get-KeyChainKey should return hashtable object when key is specified' {
     
-        (Get-KeyChainKey -KeyChain $KeyChain -Key TEST1).GetType() | Should be 'System.Collections.DictionaryEntry'
+        (Get-KeyChainKey -KeyChain $KeyChain -Key TEST1).GetType() | Should be 'hashtable'
     
     }
     
@@ -72,7 +72,7 @@ Describe "$ModuleName module" {
     
     It 'Get-KeyChainKey should return expected username' {
         
-        (Get-KeyChainKey -KeyChain $KeyChain -Key TEST1).Value.UserName | Should be 'Username1'
+        (Get-KeyChainKey -KeyChain $KeyChain -Key TEST1).TEST1.UserName | Should be 'Username1'
     
     }
     

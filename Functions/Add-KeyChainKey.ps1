@@ -1,7 +1,31 @@
 ﻿#requires -Version 3
+
+<#
+.Synopsis
+   Short description
+.DESCRIPTION
+   Long description
+.EXAMPLE
+   Example of how to use this cmdlet
+.EXAMPLE
+   Another example of how to use this cmdlet
+.INPUTS
+   Inputs to this cmdlet (if any)
+.OUTPUTS
+   Output from this cmdlet (if any)
+.NOTES
+   General notes
+.COMPONENT
+   The component this cmdlet belongs to
+.ROLE
+   The role this cmdlet belongs to
+.FUNCTIONALITY
+   The functionality that best describes this cmdlet
+#>
 function Add-KeyChainKey 
 {
     param(
+        # The name of the key. Use this name to refer to your key when you want to use it or remove it,
         [Parameter(Mandatory = $true)]
         [String]
         $Key

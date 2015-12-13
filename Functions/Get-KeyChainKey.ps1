@@ -29,8 +29,11 @@ function Get-KeyChainKey
         if ($Key -ne '') 
         {
             Write-Verbose -Message "Return specific key: $Key"
-            $KeyChainKeys.GetEnumerator() | Where-Object -FilterScript {
-                $_.Name -eq $Key
+            if ($KeyChainKeys[$Key]) {
+                @{ $Key = $KeyChainKeys[$Key] }
+            }
+            else {
+                $null
             }
         }
         else 
