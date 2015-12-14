@@ -1,48 +1,57 @@
 ﻿#requires -Version 3
 
 <#
-.Synopsis
-   Short description
+.SYNOPSIS
+   Adds a key to a KeyChain file
 .DESCRIPTION
-   Long description
+   The Add-KeyChainKey function is used to add or update a set of credentials to a key in a KeyChain file (or update an existing key).
+   The credential objects use the Data Protection Application Programming Interface (DPAPI) to encrypt the password.
+   The DPAPI stores the encryption key in the user profile.
+   For more about DPAPI see https://msdn.microsoft.com/en-us/library/ms995355.aspx
 .EXAMPLE
-   Example of how to use this cmdlet
+   Add-KeyChainKey -Key 'TEST1' -UserName 'domain\username'
+
+   Prompts for a password for the 'domain\username' user, assigns the credential set to the 'TEST1' key, and adds (or updates) the 'TEST1' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
 .EXAMPLE
-   Another example of how to use this cmdlet
+   Add-KeyChainKey -Key 'TEST2' -Credential $Cred
+
+   Assign the credenial object in $Cred to the 'TEST2' key, and adds (or updates) the 'TEST2' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+.EXAMPLE
+   Add-KeyChainKey -Key 'TEST3' -Credential $Cred -KeyChain 'C:\My\Custom\KeyChain\File.xml'
+
+   Assign the credenial object in $Cred to the 'TEST3' key, and adss (or updates) the 'TEST3' key in the KeyChain file in a custom location.
 .INPUTS
-   Inputs to this cmdlet (if any)
+   System.String
+   System.Management.Automation.PSCredential
 .OUTPUTS
-   Output from this cmdlet (if any)
-.NOTES
-   General notes
-.COMPONENT
-   The component this cmdlet belongs to
-.ROLE
-   The role this cmdlet belongs to
-.FUNCTIONALITY
-   The functionality that best describes this cmdlet
+   System.IO.FileInfo
+.LINK
+    https://github.com/csandfeld/KeyChain
 #>
 function Add-KeyChainKey 
 {
     param(
-        # The name of the key. Use this name to refer to your key when you want to use it or remove it,
+        # A unique name for the key. Use this name to refer to your key when you want to use it or remove it.
         [Parameter(Mandatory = $true)]
-        [String]
+        [System.String]
         $Key
         ,
 
+        # The user name part of a credential object. When supplying a user name, you will be prompted to supply a password.
         [Parameter(Mandatory = $true, ParameterSetName = 'UserName')]
-        [String]
+        [System.String]
         $UserName
         ,
 
+        # A full credential object
         [Parameter(Mandatory = $true, ParameterSetName = 'Credential')]
         [System.Management.Automation.PSCredential]
         $Credential
         ,
 
+        # The full path to where you want to store your KeyChain XML file (any name will do)
         [Parameter(Mandatory = $false)]
-        [String]
+        [System.String]
         $KeyChain = "$env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml"
     )
     
