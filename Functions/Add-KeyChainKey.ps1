@@ -1,32 +1,32 @@
 ﻿#requires -Version 3
 
 <#
-.SYNOPSIS
-   Adds a key to a KeyChain file
-.DESCRIPTION
-   The Add-KeyChainKey function is used to add or update a set of credentials to a key in a KeyChain file (or update an existing key).
-   The credential objects use the Data Protection Application Programming Interface (DPAPI) to encrypt the password.
-   The DPAPI stores the encryption key in the user profile.
-   For more about DPAPI see https://msdn.microsoft.com/en-us/library/ms995355.aspx
-.EXAMPLE
-   Add-KeyChainKey -Key 'TEST1' -UserName 'domain\username'
+        .SYNOPSIS
+        Adds a Key (a label and a credential object) to a KeyChain file
+        .DESCRIPTION
+        The Add-KeyChainKey function is used to add or update a set of credentials to a key in a KeyChain file (or update an existing key).
+        The credential objects use the Data Protection Application Programming Interface (DPAPI) to encrypt the password.
+        The DPAPI stores the encryption key in the user profile.
+        For more about DPAPI see https://msdn.microsoft.com/en-us/library/ms995355.aspx
+        .EXAMPLE
+        Add-KeyChainKey -Key 'TEST1' -UserName 'domain\username'
 
-   Prompts for a password for the 'domain\username' user, assigns the credential set to the 'TEST1' key, and adds (or updates) the 'TEST1' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
-.EXAMPLE
-   Add-KeyChainKey -Key 'TEST2' -Credential $Cred
+        Prompts for a password for the 'domain\username' user, assigns the credential set to the 'TEST1' key, and adds (or updates) the 'TEST1' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+        .EXAMPLE
+        Add-KeyChainKey -Key 'TEST2' -Credential $Cred
 
-   Assign the credenial object in $Cred to the 'TEST2' key, and adds (or updates) the 'TEST2' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
-.EXAMPLE
-   Add-KeyChainKey -Key 'TEST3' -Credential $Cred -KeyChain 'C:\My\Custom\KeyChain\File.xml'
+        Assign the credenial object in $Cred to the 'TEST2' key, and adds (or updates) the 'TEST2' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+        .EXAMPLE
+        Add-KeyChainKey -Key 'TEST3' -Credential $Cred -KeyChain 'C:\My\Custom\KeyChain\File.xml'
 
-   Assign the credenial object in $Cred to the 'TEST3' key, and adss (or updates) the 'TEST3' key in the KeyChain file in a custom location.
-.INPUTS
-   System.String
-   System.Management.Automation.PSCredential
-.OUTPUTS
-   System.IO.FileInfo
-.LINK
-    https://github.com/csandfeld/KeyChain
+        Assign the credenial object in $Cred to the 'TEST3' key, and adss (or updates) the 'TEST3' key in the KeyChain file in a custom location.
+        .INPUTS
+        System.String
+        System.Management.Automation.PSCredential
+        .OUTPUTS
+        System.IO.FileInfo
+        .LINK
+        https://github.com/csandfeld/KeyChain
 #>
 function Add-KeyChainKey 
 {
