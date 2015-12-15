@@ -1,0 +1,96 @@
+﻿TOPIC
+    about_KeyChain
+
+SHORT DESCRIPTION
+    Describes the functionality of the KeyChain module.
+
+
+LONG DESCRIPTION
+    KeyChain is a simple module you can use to store credentials for later use.
+    The module simply assign a key (a tag or label if you will) to a credential
+    object, and store the object in an XML file, made with the Export-CliXml.
+    
+    If no KeyChain file is specified, it will store the credentials in:
+
+        $env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml
+
+    You can point to a custom KeyChain file with the KeyChain parameter.
+
+    Credentials are stored by exporting PSCredential objects to XML with the
+    Export-CliXml Cmdlet.
+    
+    The PSCredential object use the Data Protection Application Programming 
+    Interface (DPAPI) to encrypt the password, alowing only the user account
+    that entered the password to decrypt it. The encryption key is stored in 
+    the user profile. Thus credentials exported to an XML file are safe from
+    prying eyes.
+
+    
+  USAGE EXAMPLE
+    Say you have a number of different credentials you use on a regular basis,
+    for PowerShell related work. Rather than having to enter those credentials
+    every time you need them, you can store them in a KeyChain file, and get 
+    them whenever you need them.
+
+
+    If you have a credential object stored in a variable and want to add it to
+    your KeyChain:
+
+        $Cred = Get-Credential User1
+
+        Add-KeyChainKey -Key TEST1 -Credential $Cred
+
+    Or if you just want to add credential to the KeyChain without storing in a
+    variable first just specify a UserName and it will prompt for password:
+
+        Add-KeyChainKey -Key TEST2 -UserName User2
+
+    The above methods are also used to update (overwrite) a key
+
+    
+    Now to get all credentials stored in your KeyChain simply run:
+
+        Get-KeyChainKey
+
+    Or to get a specific key labeled TEST1 run:
+
+        Get-KeyChainKey -Key TEST1
+
+    To read your stored keys into a variable and use a key labeled TEST1 as
+    credential for Get-WmiObject:
+
+        $Keys = Get-KeyChainKey
+        
+        Get-WmiObject -Credential $Keys.TEST1 -ComputerName SERVER -Class Win32_Service
+
+
+    To remove a key labeled TEST1 from your KeyChain file:
+
+        Remove-KeyChainKey -Key TEST1
+
+
+    To use an alternative KeyChain file, all functions support the KeyChain
+    parameter:
+
+        Get-KeyChainKey -KeyChain C:\My\Custom\KeyChain\File.xml
+
+
+
+ 
+
+SEE ALSO
+    http://github.com/csandfeld/KeyChain
+
+    For more about DPAPI see:
+    https://msdn.microsoft.com/en-us/library/ms995355.aspx
+    
+
+
+
+
+
+
+
+
+
+

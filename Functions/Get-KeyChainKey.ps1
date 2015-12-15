@@ -11,11 +11,11 @@
         .EXAMPLE
         Get-KeyChainKey
 
-        Gets all keys contained in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+        Gets all keys contained in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml).
         .EXAMPLE
         Get-KeyChainKey -Key 'TEST1'
 
-        Gets the 'TEST1' key contained in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+        Gets the 'TEST1' key contained in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml).
         .EXAMPLE
         Get-KeyChainKey -Key 'TEST2' -KeyChain 'C:\My\Custom\KeyChain\File.xml'
 

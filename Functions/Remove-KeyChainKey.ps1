@@ -11,7 +11,7 @@
         .EXAMPLE
         Remove-KeyChainKey -Key 'TEST1'
 
-        Removes the 'TEST1' key contained in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+        Removes the 'TEST1' key contained in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml).
         .EXAMPLE
         Remove-KeyChainKey -Key 'TEST2' -KeyChain 'C:\My\Custom\KeyChain\File.xml'
 

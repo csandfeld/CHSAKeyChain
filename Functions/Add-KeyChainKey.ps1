@@ -11,11 +11,11 @@
         .EXAMPLE
         Add-KeyChainKey -Key 'TEST1' -UserName 'domain\username'
 
-        Prompts for a password for the 'domain\username' user, assigns the credential set to the 'TEST1' key, and adds (or updates) the 'TEST1' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+        Prompts for a password for the 'domain\username' user, assigns the credential set to the 'TEST1' key, and adds (or updates) the 'TEST1' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml).
         .EXAMPLE
         Add-KeyChainKey -Key 'TEST2' -Credential $Cred
 
-        Assign the credenial object in $Cred to the 'TEST2' key, and adds (or updates) the 'TEST2' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml").
+        Assign the credenial object in $Cred to the 'TEST2' key, and adds (or updates) the 'TEST2' key in the KeyChain file in the default location ($env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml).
         .EXAMPLE
         Add-KeyChainKey -Key 'TEST3' -Credential $Cred -KeyChain 'C:\My\Custom\KeyChain\File.xml'
 
