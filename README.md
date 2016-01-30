@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/275dnejcjtf4vmg3?svg=true)](https://ci.appveyor.com/project/csandfeld/keychain)
+
 # About KeyChain
 
 KeyChain is a simple module you can use to store credentials for later use.
