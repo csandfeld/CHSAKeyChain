@@ -12,7 +12,7 @@ Describe "$ModuleName module" {
 
     $ModuleRoot = (Resolve-Path "$PSScriptRoot\..").Path
 
-    #Import-Module (Join-Path -Path $ModuleRoot -ChildPath "$ModuleName.psd1") -Force
+    Import-Module (Join-Path -Path $ModuleRoot -ChildPath "$ModuleName.psd1") -Force
     
     
     # Get temporary KeyChain file name
