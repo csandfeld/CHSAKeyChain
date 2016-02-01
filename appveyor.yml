@@ -9,6 +9,7 @@ skip_commits:
   message: /updated readme.*/
 
 install:
+  - cinst psscriptanalyzer -y
   - cinst pester -y
 
 build: false
