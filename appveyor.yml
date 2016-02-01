@@ -9,7 +9,7 @@ skip_commits:
   message: /updated readme.*/
 
 install:
-  - cinst psscriptanalyzer -y
+# NOT AVAILABLE IN CHOCOLATEY  - cinst psscriptanalyzer -y
   - cinst pester -y
 
 build: false
