@@ -39,7 +39,8 @@ function Get-KeyChainKey
         # The full path to a custom KeyChain XML file (any name will do)
         [Parameter(Mandatory = $false)]
         [String]
-        $KeyChain = "$env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml"
+        #$KeyChain = "$env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml"
+        $KeyChain = (Get-KeyChainDefault).KeyChainFile
     )
     
     Try 

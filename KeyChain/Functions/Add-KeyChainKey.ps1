@@ -52,7 +52,7 @@ function Add-KeyChainKey
         # The full path to where you want to store your KeyChain XML file (any name will do)
         [Parameter(Mandatory = $false)]
         [System.String]
-        $KeyChain = "$env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml"
+        $KeyChain = (Get-KeyChainDefault).KeyChainFile
     )
     
     
@@ -101,7 +101,8 @@ function Add-KeyChainKey
 
         Try 
         {
-            $AllKeys | Export-Clixml -Path $KeyChain
+            #$AllKeys | Export-Clixml -Path $KeyChain
+            $AllKeys | SetKeyChainData -KeyChainFile $KeyChain
         }
         Catch 
         {

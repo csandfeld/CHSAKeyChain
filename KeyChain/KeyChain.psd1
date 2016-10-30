@@ -66,16 +66,17 @@ Copyright = '(c) 2015 Christian Sandfeld. All rights reserved'
 # NestedModules = @()
 
 # Functions to export from this module
+#FunctionsToExport = '*-*'
 FunctionsToExport = '*'
 
 # Cmdlets to export from this module
-CmdletsToExport = '*'
+#CmdletsToExport = '*'
 
 # Variables to export from this module
-VariablesToExport = '*'
+#VariablesToExport = '*'
 
 # Aliases to export from this module
-AliasesToExport = '*'
+#AliasesToExport = '*'
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()

@@ -35,7 +35,7 @@ function Remove-KeyChainKey
         # The full path to a custom KeyChain XML file (any name will do)
         [Parameter(Mandatory = $false)]
         [String]
-        $KeyChain = "$env:USERPROFILE\Documents\WindowsPowerShell\KeyChain.xml"
+        $KeyChain = (Get-KeyChainDefault).KeyChainFile
     )
 
     
@@ -78,7 +78,8 @@ function Remove-KeyChainKey
 
         Try 
         {
-            $AllKeys | Export-Clixml -Path $KeyChain
+            # $AllKeys | Export-Clixml -Path $KeyChain
+            $AllKeys | SetKeyChainData -KeyChainFile $KeyChain
         }
         Catch 
         {
