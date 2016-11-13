@@ -1,4 +1,4 @@
-﻿function SetKeyChainData {
+﻿function Set-KeyChainData {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true, ValueFromPipeline)]
@@ -13,7 +13,7 @@
     )
     $ErrorActionPreference = 'Stop'
     Try {
-        [void](GetOrCreateFolder -Create (Split-Path -Path $KeyChainFile -Parent))
+        [void](Get-Folder -Create (Split-Path -Path $KeyChainFile -Parent))
         $KeyChainData | Export-Clixml -Path $KeyChainFile -Force -Confirm:$false
     }
     Catch {

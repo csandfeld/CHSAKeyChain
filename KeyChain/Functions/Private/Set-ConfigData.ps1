@@ -1,4 +1,4 @@
-﻿function SetConfigData {
+﻿function Set-ConfigData {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true, ValueFromPipeline)]
@@ -13,7 +13,7 @@
     )
     $ErrorActionPreference = 'Stop'
     Try {
-        [void](GetOrCreateFolder -Create (Split-Path -Path $ConfigFile -Parent))
+        [void](Get-Folder -Create (Split-Path -Path $ConfigFile -Parent))
         $ConfigHash | ConvertTo-Json -Depth 99 | Out-File -FilePath $ConfigFile -Force -Confirm:$false
     }
     Catch {

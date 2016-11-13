@@ -1,5 +1,5 @@
 ﻿function Reset-KeyChainDefault {
     [CmdletBinding(SupportsShouldProcess)]
     Param ()
-    RemoveConfigData
+    Remove-ConfigData
 }

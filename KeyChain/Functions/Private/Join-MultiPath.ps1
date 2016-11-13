@@ -1,4 +1,4 @@
-﻿function JoinPath {
+﻿function Join-MultiPath {
     <#
             .SYNOPSIS
             Joins any number of elements into a path

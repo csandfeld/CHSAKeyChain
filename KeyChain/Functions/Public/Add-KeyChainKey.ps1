@@ -102,7 +102,7 @@ function Add-KeyChainKey
         Try 
         {
             #$AllKeys | Export-Clixml -Path $KeyChain
-            $AllKeys | SetKeyChainData -KeyChainFile $KeyChain
+            $AllKeys | Set-KeyChainData -KeyChainFile $KeyChain
         }
         Catch 
         {

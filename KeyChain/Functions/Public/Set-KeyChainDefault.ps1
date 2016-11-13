@@ -7,5 +7,5 @@
     $ConfigHash = @{
         KeyChainFile = $KeyChainFile
     }
-    SetConfigData -ConfigHash $ConfigHash -ConfigFile (GetConfigPath -Location Custom)
+    Set-ConfigData -ConfigHash $ConfigHash -ConfigFile (Get-ConfigPath -Location Custom)
 }

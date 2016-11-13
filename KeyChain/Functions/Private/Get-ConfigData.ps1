@@ -1,14 +1,14 @@
-﻿function GetConfigData {
+﻿function Get-ConfigData {
     Param(
         [Switch]
         $NoEnvExpansion = $false
     )
     $ErrorActionPreference = 'Stop'
-    $ConfigPath = GetConfigPath
+    $ConfigPath = Get-ConfigPath
     Try {
         $ConfigData = Get-Content -Path $ConfigPath | ConvertFrom-Json
         if (-not $NoEnvExpansion) {
-            $ConfigData = $ConfigData | ExpandStringEnvVars
+            $ConfigData = $ConfigData | Expand-StringEnvVars
         }
     }
     Catch {

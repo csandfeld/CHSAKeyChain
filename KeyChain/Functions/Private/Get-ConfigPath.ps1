@@ -1,4 +1,4 @@
-function GetConfigPath {
+function Get-ConfigPath {
     [CmdletBinding()]
     Param(
         [ValidateSet('Custom','Default','Validated')]
@@ -6,13 +6,13 @@ function GetConfigPath {
     )
     
     # Set child path part
-    $ChildPath = JoinPath -Path $ModuleDefault.ConfigData, $ModuleDefault.ConfigFile
+    $ChildPath = Join-MultiPath -Path $ModuleDefault.ConfigData, $ModuleDefault.ConfigFile
     
     # Custom Config path
-    $CustomConfigPath = JoinPath -Path $env:LOCALAPPDATA, $ModuleDefault.ModuleName, $ChildPath
+    $CustomConfigPath = Join-MultiPath -Path $env:LOCALAPPDATA, $ModuleDefault.ModuleName, $ChildPath
     
     # Default Config path
-    $DefaultConfigPath = JoinPath -Path $ModuleDefault.ModuleRoot, $ChildPath
+    $DefaultConfigPath = Join-MultiPath -Path $ModuleDefault.ModuleRoot, $ChildPath
     
     # Decide what to return
     Switch ($Location) {

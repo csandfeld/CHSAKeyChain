@@ -1,4 +1,4 @@
-﻿function GetOrCreateFolder {
+﻿function Get-Folder {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true, ValueFromPipeline)]

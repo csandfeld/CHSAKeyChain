@@ -1,4 +1,4 @@
-﻿function ExpandStringEnvVars {
+﻿function Expand-StringEnvVars {
     [CmdletBinding()]
     Param(
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
