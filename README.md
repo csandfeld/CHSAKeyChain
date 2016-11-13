@@ -16,7 +16,7 @@ the user profile. Thus credentials exported to an XML file are safe from
 prying eyes.
 
 For more about the KeyChain module see:
-https://github.com/csandfeld/KeyChain/blob/master/Culture/about_KeyChain.help.txt
+https://github.com/csandfeld/KeyChain/blob/master/en-US/about_KeyChain.help.txt
 
 For more about DPAPI see:
 https://msdn.microsoft.com/en-us/library/ms995355.aspx
